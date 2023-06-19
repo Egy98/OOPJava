@@ -1,28 +1,44 @@
-import Models.student;
+import Models.Inventory;
 
-public class Main
-    {
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
     public static void main(String[] args)
-        {
+    {
+        Inventory mvagusta = new Inventory
+                (
+                        "00",
+                        "Brutale",
+                        15.950
+                );
+        Inventory ducati = new Inventory
+                (
+                        "01",
+                        "Monster",
+                        11.290
+                );
+        Inventory triumph = new Inventory
+                (
+                        "02",
+                        "StreetTriple",
+                        9.995
+                );
 
-        student mario = new student();
-        student pino = new student();
 
-        mario.setGrades(25);
-        mario.setGrades(26);
-        mario.setGrades(27);
-        pino.setGrades(20);
-        pino.setGrades(22);
-        pino.setGrades(24);
+        Map<String, String> map = new HashMap<>();
 
+        map.put("00","Brutale");
+        map.put("01","Monster");
+        map.put("02","StreetTriple");
 
+        System.out.println("\n" + map + "\n");
+        System.out.println("\n L'inventario e' composto da " + map.size() + " MOTO\n");
 
-        System.out.println("\n" + mario.getGrades());
-        int mediaMario = mario.getAverageGrade();
-        System.out.println("\n Media : " + mediaMario);
+        double somPrice = mvagusta.som() + ducati.som() + triumph.som();
+        System.out.println("\n La somma dell'inventario  e' : " + somPrice);
 
-        System.out.println("\n" + pino.getGrades());
-        int mediaPino = pino.getAverageGrade();
-        System.out.println("\n Media : " + mediaPino);
-         }
+        
+
     }
+}
