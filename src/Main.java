@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         Account account = new Account();
-        account.setAccountNumber(34589211);
+        account.setAccountNumber(34123411);
         account.setBalance(1000.0);
         System.out.println("Bank Name: " + Account.getNameBank());
         System.out.println("Account Number: " + account.getAccountNumber());

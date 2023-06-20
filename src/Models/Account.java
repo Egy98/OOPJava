@@ -1,9 +1,9 @@
 package Models;
 
     public class Account {
-        private static String NameBank = "Intesa San Paolo";
-        private int accountNumber;
-        private double balance;
+        public static String NameBank = "Intesa San Paolo";
+        public int accountNumber;
+        public double balance;
 
         public Account() {
         }
