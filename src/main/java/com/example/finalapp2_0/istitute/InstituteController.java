@@ -26,7 +26,7 @@ public class InstituteController {
     }
 
     @PostMapping("/Institutes")
-    public Institute createInstitute(Institute institute) {
+    public Institute createInstitute(@RequestBody Institute institute) {
         return instituteService.createInstitute(institute);
     }
 

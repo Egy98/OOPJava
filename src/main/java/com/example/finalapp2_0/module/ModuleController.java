@@ -26,7 +26,7 @@ public class ModuleController {
     }
 
     @PostMapping("/Modules")
-    public Module createModule(Module module) {
+    public Module createModule(@RequestBody Module module) {
         return moduleService.createModule(module);
     }
 

@@ -25,7 +25,7 @@ public class AssessmentController {
     }
 
     @PostMapping("/Assessments")
-    public Assessment createAssessment(Assessment assessment) {
+    public Assessment createAssessment(@RequestBody Assessment assessment) {
         return assessmentService.createAssessment(assessment);
     }
 
