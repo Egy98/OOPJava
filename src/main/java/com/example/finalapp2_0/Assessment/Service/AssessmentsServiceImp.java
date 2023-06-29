@@ -40,12 +40,14 @@ public class AssessmentsServiceImp implements AssessmentsService {
     }
 
     @Override
+    public List<Assessments> addAll() {
+        return addAll();
+    }
+
+    @Override
     public List<Assessments> getAll() {
         return getAll();
     }
 
-    @Override
-    public List<Assessments> addAll() {
-        return addAll();
-    }
+
 }
