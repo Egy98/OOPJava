@@ -14,4 +14,6 @@ public interface AssessmentsService {
     void deleteAssessment(Long idAssessment);
 
     List<Assessments> getAll();
+
+    List<Assessments> addAll();
 }

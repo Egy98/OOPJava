@@ -1,13 +1,9 @@
 package com.example.finalapp2_0.Assessment;
 
 import com.example.finalapp2_0.Assessment.Service.AssessmentsService;
-import jakarta.websocket.server.PathParam;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 
 @RestController
 public class AssessmentController {
@@ -17,15 +13,19 @@ public class AssessmentController {
         this.assessmentsService = assessmentsService;
     }
 
+    @PutMapping ("/Assessment")
+    public List<Assessments> putAssessment() {
+        return assessmentsService.addAll();
+    }
 
     @GetMapping("/Assessment")
-        public List<Assessments> getAssessment() {
-            return assessmentsService.getAll();
-        }
+    public List<Assessments> getAssessment() {
+        return assessmentsService.getAll();
+    }
 
-        @GetMapping("/Assessment{id}")
-        public Assessments getAssessment(@PathVariable long idAssessment, @PathParam("lang") String lang) {
-            return assessmentsService.getAssessment(idAssessment);
-        }
+    @GetMapping("/Assessment/{id}")
+    public Assessments getAssessment(@PathVariable long idAssessment, @RequestParam("lang") String lang) {
+        return assessmentsService.getAssessment(idAssessment);
+    }
 
 }
