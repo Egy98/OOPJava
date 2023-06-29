@@ -46,6 +46,7 @@ public class AssessmentsServiceImp implements AssessmentsService {
 
     @Override
     public List<Assessments> getAll() {
+
         return getAll();
     }
 

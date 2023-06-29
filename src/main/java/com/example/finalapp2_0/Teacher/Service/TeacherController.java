@@ -5,39 +5,36 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpServerErrorException;
 
+@RestController
 public class TeacherController {
 
     private final TeacherService teacherService;
 
-    public TeacherController (TeacherService teacherService) {
-
+    public TeacherController(TeacherService teacherService) {
         this.teacherService = teacherService;
     }
 
-    @GetMapping("/Teachers/{ FiscalCode }")
-    public Teachers getTeacher (@PathVariable String FiscalCode) {
-
-        return teacherService.getTeacher(FiscalCode);
+    @GetMapping("/Teachers/{fiscalCode}")
+    public Teachers getTeacher(@PathVariable String fiscalCode) {
+        return teacherService.getTeacher(fiscalCode);
     }
 
-    @PostMapping("/Teachers/")
-    public Teachers createTeacher (@RequestBody Teachers teachers){
-
+    @PostMapping("/Teachers")
+    public Teachers createTeacher(@RequestBody Teachers teachers) {
         return teacherService.createTeacher(teachers);
     }
 
-    @PutMapping("/Teachers/{ i }")
-    Teachers updateTeacher(@PathVariable String FiscalCode, @RequestBody Teachers teachers) {
-        if(!FiscalCode.equals(teachers.getFiscalCode())){
-            throw new HttpServerErrorException(HttpStatus.BAD_REQUEST, "Bad ID utilisation");
+    @PutMapping("/Teachers/{fiscalCode}")
+    public Teachers updateTeacher(@PathVariable String fiscalCode, @RequestBody Teachers updatedTeacher) {
+        if (!fiscalCode.equals(updatedTeacher.getFiscalCode())) {
+            throw new HttpServerErrorException(HttpStatus.BAD_REQUEST, "Bad ID utilization");
         } else {
-            return teacherService.updateTeacher(teachers);
+            return teacherService.updateTeacher(updatedTeacher);
         }
     }
-    @DeleteMapping("/Teachers/{ id }")
-    public void deleteTeacher(@PathVariable String FiscalCode){
-        teacherService.deleteTeacher(FiscalCode);
+
+    @DeleteMapping("/Teachers/{fiscalCode}")
+    public void deleteTeacher(@PathVariable String fiscalCode) {
+        teacherService.deleteTeacher(fiscalCode);
     }
-
-
 }

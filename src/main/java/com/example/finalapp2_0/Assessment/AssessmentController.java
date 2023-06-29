@@ -13,8 +13,8 @@ public class AssessmentController {
         this.assessmentsService = assessmentsService;
     }
 
-    @PutMapping ("/Assessment")
-    public List<Assessments> putAssessment() {
+    @PostMapping ("/Assessment")
+    public List<Assessments> createAssessment() {
         return assessmentsService.addAll();
     }
 
